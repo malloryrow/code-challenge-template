@@ -1,6 +1,5 @@
 import sqlite3
 from flask import Flask, request, jsonify, g
-import statistics
 import os
 from flasgger import Swagger, swag_from
 
