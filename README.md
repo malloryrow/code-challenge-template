@@ -33,18 +33,18 @@ Missing values are indicated by the value -9999.
 ## Running
 Everything needed to run is in the `src` directory and should be run from there.
 1. The data processing script is `wx_data.py`. Run the script (`python wx_data.py`). This will generate 3 files in the main directory
-     - <b>raw_wx_data.db</b>: This is the database the contains of the daily weather data: the date (YYYYMMDD format), daily maximum temperature (degree Celsius), daily minimum temperature (degree Celsius), precipitation (millimeter), and station ID.
-     - <b>stats_wx_data.db</b>: This is the database the contains of the annual weather data: yearly average maximum temperature (degree Celsius), yearly average minimum temperature (degree Celsius), precipitation (centimeter), station ID, and year (YYYY format).
+     - <b>raw_wx_data.db</b>: This is the database that contains the daily weather data: the date (YYYYMMDD format), daily maximum temperature (degree Celsius), daily minimum temperature (degree Celsius), precipitation (millimeter), and station ID.
+     - <b>stats_wx_data.db</b>: This is the database that contains the annual weather data: yearly average maximum temperature (degree Celsius), yearly average minimum temperature (degree Celsius), total precipitation (centimeter), station ID, and year (YYYY format).
      - <b>wx_data_run<i>YYYYmmdd_HHMMSS</i>.log</b>: This is the log file for the run, where <i>YYYYmmdd_HHMMSS</i> is the time `wx_data.py` was executed.
 
-2. The script to generate the locally run API is `app.py`. Run the script (`python app.py`). The API can be accesssed by opening a web browsers and using `http://127.0.0.1:5000/`.
+2. The script to generate the locally run API is `app.py`. Run the script (`python app.py`). The API can be accesssed by opening a web browser and going to `http://127.0.0.1:5000/`.
 
 ## Interacting with the API
-The API has 2 GET endpoints and an endpoint for Swagger documentation
+The API has 2 GET endpoints and an endpoint for Swagger documentation.
 
 ### api/weather
 ```
-This reads the daily weather data from raw_wx_data.db.
+This reads the daily weather data from raw_wx_data.db. The default display limit is 10 entries.
 
 A query can be done using ? after the URL; for more than one query use & between the entries:
 - StationID: station's identification
@@ -57,7 +57,7 @@ Example: http://127.0.0.1:5000/api/weather/?StationID=USC00129670&Date=19850102
   
 ### api/weather/stats
 ```
-This reads the annual weather data from stats_wx_data.db.
+This reads the annual weather data from stats_wx_data.db. The default display limit is 10 entries.
 
 A query can be done using ? after the URL; for more than one query use & between the entries:
 - StationID: station's identification
